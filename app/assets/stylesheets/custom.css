@@ -125,6 +125,30 @@ body,html{
   }
 
  .text-success.dashboard img{
- 	height: 200px;
- 	width: auto;
+ 	  height: 200px;
+ 	  width: auto;
+ }
+
+ .inspector-header {
+    overflow: hidden;
+ }
+ .inspector-header .ins-msg {
+    margin-top: 48px;
+ }
+
+ .inspector-header img {
+    height: auto!important;
+ }
+
+ .inspector-header .text-success span.label {
+    font-size: 99%;
+ }
+
+ .inspectors-list li {
+    cursor: pointer;
+ }
+
+ .list-group-item.item-description {
+    display: none;
+    list-style: none;
  }

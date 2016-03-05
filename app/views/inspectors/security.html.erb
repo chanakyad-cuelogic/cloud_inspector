@@ -1,2 +1,81 @@
-<h1>Inspectors#security</h1>
-<p>Find me in app/views/inspectors/security.html.erb</p>
+<div class="panel-heading">
+  <h4>Inspector / Security</h4>
+</div>
+<div class = "panel-body">
+  <div class="col-sm-12">
+    <div class="row">
+    	<div class="col-md-12">
+	        <div class="well inspector-header">
+	          <h4 class="text-success dashboard">
+	          	<div class="col-md-2 col-md-offset-3">
+	            	<img src="assets/adviser_icon_security.png" class="left">
+	            </div>
+	            <div class="col-md-6 ins-msg">	
+		            <span class="label label-success pull-left">+ 24%</span>
+		            <span class="label label-warning pull-left">+ 24%</span>
+		            <span class="label label-danger pull-left">+ 24%</span>
+	            </div>
+	          </h4>
+	        </div>
+
+	        <ul class="list-group inspectors-list">
+			  <li class="list-group-item glyphicon glyphicon-chevron-right">
+			  	<span class="title">Security Groups - Specific Ports Unrestricted</span>
+			  </li>
+			  <li class="list-group-item item-description">
+			  	<div class="details">
+			  		<span class="guidelines">
+			  			<b>Alert Criteria</b> <br>
+						Green: Access to port 80, 25, 443, or 465 is unrestricted.<br>
+						Red: Access to port 20, 21, 1433, 1434, 3306, 3389, 4333, 5432, or 5500 is unrestricted.<br>
+						Yellow: Access to any other port is unrestricted. <br><br>
+
+						<b>Recommended Action</b> <br>
+						Restrict access to only those IP addresses that require it. To restrict access to a specific IP address, set the suffix to /32 (for example, 192.0.2.10/32). Be sure to delete overly permissive rules after creating rules that are more restrictive.
+					</span>
+
+					<table class="table">
+					  <thead>
+					    <tr>
+					      <th>#</th>
+					      <th>Security Group Name</th>
+					      <th>Security Group ID</th>
+					      <th>Region</th>
+					      <th>Protocol</th>
+					      <th>From Port - To Port</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="row">1</th>
+					      <td>default</td>
+					      <td>sg-3294872</td>					      
+					      <td>us-east-1</td>
+					      <td>sg-3294872</td>
+					      <td>22 - 22</td>
+					    </tr>
+					  </tbody>
+					</table>
+
+			  	</div>
+			  </li>
+			  <li class="list-group-item glyphicon glyphicon-chevron-right">
+			  	<span class="title">IAM</span>
+			  	<div class="details">
+
+			  	</div>
+			  </li>
+			  <li class="list-group-item glyphicon glyphicon-chevron-right">
+			  	<span class="title">RDS DB Security Group</span>
+			  </li>
+			  <li class="list-group-item glyphicon glyphicon-chevron-right">
+			  	<span class="title">ELB Listener Configuration</span>
+			  	<div class="details">
+
+			  	</div>
+			  </li>
+			</ul>
+	      </div>
+    </div><!--/row-->    
+  </div><!--/col-12-->
+</div>
