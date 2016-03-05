@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.1.7'
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -25,4 +25,4 @@ group :development do
   gem 'rails_layout'
 end
 
-gem 'fog-aws', '~> 0.9.1'
+gem 'fog-aws', :git => "https://github.com/maheshb-cuelogic/fog-aws.git"
