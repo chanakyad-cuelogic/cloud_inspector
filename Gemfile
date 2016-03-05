@@ -24,3 +24,5 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
+gem 'fog-aws', '~> 0.9.1'
