@@ -10,10 +10,27 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160305081956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "security_groups", force: :cascade do |t|
+    t.hstore   "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "service_costs", force: :cascade do |t|
+    t.string   "region"
+    t.json     "ec2_costs"
+    t.json     "ebs_costs"
+    t.json     "eip_costs"
+    t.json     "elb_costs"
+    t.json     "rds_costs"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
