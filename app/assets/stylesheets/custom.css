@@ -120,6 +120,8 @@ body,html{
   .label {
   	margin-right: 7px;
     margin-bottom: 18px;
+    padding: .4em .6em .5em!important;
+    font-size: 63%;
   }
 
  .text-success.dashboard img{
