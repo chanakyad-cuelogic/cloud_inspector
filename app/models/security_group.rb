@@ -36,14 +36,15 @@ class SecurityGroup < ActiveRecord::Base
   	def self.get_status_of_permissions(ip_permission_hash)
   		puts "ip_permission_hash #{ip_permission_hash["ipRanges"]}"
   		fromPort = ip_permission_hash["fromPort"]
+      toPort = ip_permission_hash["toPort"]
   		unless ip_permission_hash["ipRanges"][0].blank?
   			cidr_ip = ip_permission_hash["ipRanges"][0]["cidrIp"]
   		else
   			cidr_ip = ""
   		end
-  		if fromPort-toPort == 80 || fromPort == 443
-  			0
-  		elsif cidr_ip == "0.0.0.0/0" && (fromPort != 80 && fromPort != 443)
+      if (fromPort == 80 && toPort == 80) || (fromPort == 443 && toPort == 443)
+        0
+  		elsif cidr_ip == "0.0.0.0/0" && !((fromPort == 80 && toPort == 80) || (fromPort == 443 && toPort == 443))
   			1
   		else
   			2
