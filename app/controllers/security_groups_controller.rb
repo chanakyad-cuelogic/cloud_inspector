@@ -1,13 +1,18 @@
 class SecurityGroupsController < ApplicationController
   before_action :set_security_group, only: [:show, :edit, :update, :destroy]
-  before_action :create_compute_object
 
   # GET /security_groups
   # GET /security_groups.json
   def index
-    @security_groups = SecurityGroup.all
-    security_groups = SecurityGroup.fetch_all_sgs(@compute)
-    inbound_rules = SecurityGroup.fetch_all_inbound_rule(security_groups)
+    @security_groups_data = []
+    aws = Fog::Compute.new :provider => 'AWS', :aws_access_key_id => "AKIAIIKBNVJEP4F2KT6Q", :aws_secret_access_key => "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"
+    regions = aws.describe_regions.body["regionInfo"].map {|region| region["regionName"]}
+    regions.each do |region|
+      compute = Fog::Compute.new :provider => 'AWS', :region => 'us-west-2', :aws_access_key_id => "AKIAIIKBNVJEP4F2KT6Q", :aws_secret_access_key => "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"
+      security_groups = SecurityGroup.fetch_all_sgs(compute)
+      @security_groups_data << SecurityGroup.fetch_all_inbound_rule(security_groups, region)
+    end
+    #puts "@security_groups_data #{@security_groups_data}"
   end
 
   # GET /security_groups/1
@@ -73,9 +78,5 @@ class SecurityGroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def security_group_params
       params.require(:security_group).permit(:data)
-    end
-
-    def create_compute_object
-      @compute = Fog::Compute.new :provider => 'AWS', :region => 'us-west-2', :aws_access_key_id => "AKIAIIKBNVJEP4F2KT6Q", :aws_secret_access_key => "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"
     end
 end

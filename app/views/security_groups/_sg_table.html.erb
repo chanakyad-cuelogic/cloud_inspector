@@ -1,0 +1,25 @@
+<table class="table">
+	<thead>
+	    <tr>
+	      <th>#</th>
+	      <th>Security Group Name</th>
+	      <th>Security Group ID</th>
+	      <th>Region</th>
+	      <th>Protocol</th>
+	      <th>From Port - To Port</th>
+	    </tr>
+	</thead>
+  	<tbody>
+  		<% @security_groups_data.each_with_index do |sg_rule, index| %>
+  			<% puts "sg_rule #{sg_rule}" %>
+  			<tr>
+			    <th scope="row"><%= index+1 %></th>
+			    <td><%= sg_rule["region"] %></td>
+			    <td><%= sg_rule["sg_name"] %></td>
+			    <td><%= sg_rule["sg_id"] %></td>					        
+			    <td><%= sg_rule["ipProtocol"] %></td>
+			    <td><%= sg_rule["fromPort"] %> - <%= sg_rule["toPort"] %></td>
+		    </tr>
+  		<% end %>
+  	</tbody>
+</table>

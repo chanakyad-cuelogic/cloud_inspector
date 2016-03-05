@@ -5,6 +5,9 @@ $(function() {
 	  if(!$( this ).hasClass( "active" )) {
 	  	$( this ).addClass( "active" );
 	  	$( this ).next().slideDown();
+	  	$.ajax({
+	  		url: "/security_groups"
+	  	});
 	  } else {
 	  	$( this ).next().slideUp();
 	  }
