@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  region: MyString
+  ec2_costs: 
+  ebs_costs: 
+  eip_costs: 
+  elb_costs: 
+  rds_costs: 
+
+two:
+  region: MyString
+  ec2_costs: 
+  ebs_costs: 
+  eip_costs: 
+  elb_costs: 
+  rds_costs: 
